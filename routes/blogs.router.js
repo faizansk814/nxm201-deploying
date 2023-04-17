@@ -23,7 +23,7 @@ blogsrouter.post("/post",auth,async (req,res)=>{
    }
 })
 
-blogsrouter.patch("/patch/:id",async (req,res)=>{
+blogsrouter.patch("/patch/:id",auth,async (req,res)=>{
     const {id}=req.params
     const payload=req.body
     const token=req.cookies.accesstoken
@@ -40,7 +40,7 @@ blogsrouter.patch("/patch/:id",async (req,res)=>{
     }
 })
 
-blogsrouter.delete("/delete/:id",async (req,res)=>{
+blogsrouter.delete("/delete/:id",auth,async (req,res)=>{
     const {id}=req.params
     const token=req.cookies.accesstoken
     const decoded=jwt.verify(token,"marvel")
